@@ -1,0 +1,23 @@
+GET http://localhost:5050/quejas-y-reclamos
+
+###
+
+POST http://localhost:5050/solicitar-productos
+Content-Type: application/json
+
+{
+    "name" : "Ursula",
+    "age" : 3,
+    "job" : "N/A"
+}
+
+###
+
+PUT http://localhost:5050/solicitar-productos/2
+Content-Type: application/json
+
+{
+    "name" : "Pedro",
+    "age" : 6,
+    "job" : "Ci"
+}
