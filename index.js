@@ -45,4 +45,24 @@ app.post("/solicitar-productos", (req, res) => {
   res.send("Array updated");
 });
 
+app.patch("/solicitar-productos/:id", (req, res) => {   //El id es obligatorio para que carge el endpoint
+  const { id } = req.params;
+  const { name, age, job } = req.body;
+
+  const newArray = users.map((item) => {
+    if (item.id == id) {
+      return {
+        ...item,
+        name: name? name : item.name,
+        job: job? job : item.job,
+        age: age || item.age,
+      };
+    }
+    return item;
+  });
+  // const findId = users.find((item) => item.id === parseInt(id));
+  users = newArray;
+  res.send(" Patch, Array updated");
+});
+
 app.listen(5050); // este servidor va a funcionar en el puerto 5050
